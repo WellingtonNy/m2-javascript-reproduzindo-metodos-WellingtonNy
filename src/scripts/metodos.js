@@ -22,15 +22,17 @@ function newfilter(array,callback2) {
     let novoarrfilter =[]
     for (let i = 0; i < array.length; i++) {
     let result = callback2(array[i],i,array)
-    if(result != undefined){
-    novoarrfilter.push(result)        
+    if(result === true){
+    novoarrfilter.push(array[i])        
     }
 }
     return novoarrfilter
 }
 function callback2(elemento) {
     if (elemento ==='a'|| elemento === 'b') {
-        return elemento        
+        return true        
+    }else{
+        return false
     }
 }  
 console.log(newfilter(arr,callback2));
@@ -42,14 +44,17 @@ console.log(newfilter(arr,callback2));
 function newfind (array,callback3){
 for (let i = 0; i < array.length; i++) {
    let result = callback3(array[i],i,array)
-    if (result != undefined) {
-       return result         
+    if (result === true) {
+       return array[i]        
     }
     }
+    return undefined
 }
 function callback3(elemento){
-    if (elemento ==='c') {
-        return elemento        
+    if (elemento ==='k') {
+        return true        
+    }else{
+        return false
     }
 }
 console.log(newfind(arr,callback3))
